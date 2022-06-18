@@ -22,9 +22,9 @@
             <div class="cdkDropListGroup">
                 <div class="row">
                         
-                    <div class="col-md-4">
+                    <div class="todo col-md-4">
                         <div class="example-container">
-                            <h2>To do</h2>
+                            <h2>To do - {{todo.length}}</h2>
                           
                             <div
                               cdkDropList
@@ -44,12 +44,12 @@
                                 </div> 
                               </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="example-container">
-                            <h2>In Progress</h2>
+                            <h2>In Progress - {{onGoingTask.length}}</h2>
                           
                             <div
                               cdkDropList
@@ -73,7 +73,7 @@
                       
                     <div class="col-md-4">
                         <div class="example-container">
-                            <h2>Done</h2>
+                            <h2>Completed - {{done.length}}</h2>
                           
                             <div
                               cdkDropList

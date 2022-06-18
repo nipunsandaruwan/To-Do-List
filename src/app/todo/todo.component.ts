@@ -18,8 +18,8 @@ export class TodoComponent implements OnInit {
   onGoingTask:iTask[]=[];
   done:iTask[]=[];
 
-  updatedIndex !:any;
-  saveEnable:boolean=false;
+  updatedIndex !:any;   //get index for edit method
+  saveEnable:boolean=false;  //for save button disable 
 
   constructor( private task : FormBuilder) { }
 
@@ -43,14 +43,17 @@ export class TodoComponent implements OnInit {
     this.todo.splice(i,1);
   }
 
+  //delet tasks inprogree
   deleteInProcessTask(i:number){
     this.onGoingTask.splice(i,1);
   }
 
+  //delete completed task
   deleteDoneTask(i:number){
     this.done.splice(i,1);
   }
 
+  //edit task method for edit button
   onEdit(item:iTask,i:number)
   {
     this.todoForm.controls['item'].setValue(item.description);
@@ -58,6 +61,7 @@ export class TodoComponent implements OnInit {
     this.saveEnable=true;
   }  
 
+  //update task method for save button
   updateTask(){
     this.todo[this.updatedIndex].description=this.todoForm.value.item;
 
@@ -82,6 +86,7 @@ export class TodoComponent implements OnInit {
   //   }
   // }
 
+  //drag and drop method
   drop(event: CdkDragDrop<iTask[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
